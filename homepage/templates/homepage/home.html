@@ -1,17 +1,43 @@
 <!DOCTYPE html>
+{% load static %}
 <html>
+<style>
+    form {
+        text-align: center;
+        
+    }
+</style>
+    
     <head>
         <title>songlyrics</title>
+        <link rel="stylesheet" href="{% static 'homepage/homepage.css' %}">
     </head>
-    <body>
-        <form action="{%url 'lyrics' %}">
-            <h5>Artist name</h5>
-            <input type="text" name="artist_name" ></input>
+    <body id="bg" style="background: url('/static/homepage/music.jpg'); ">
+        
+        <form  action="{%url 'lyrics' %}">
+            <h5 style="font-size:70px;">Artist name</h5>
+            <input class="tasks" type="text" name="artist_name" placeholder="artist_name" ></input>
             <br>
-            <h5>Song</h5>
-            <input type="text" name="song" > </input>
+            <h5  style="font-size: 70px;">Song</h5>
+            <input class="tasks" type="text" name="song" placeholder="song_name" > </input>
             <br>
-            <input type="submit" value="Get Lyrics"  >
+            <input id="submitt" type="submit" value="Get Lyrics"  >
         </form>
     </body>
+    <script>
+        document.addEventListener('DOMContentLoaded', function (){
+            //by default, submit button is disabled
+            document.querySelector('#submitt').disabled = true;
+            document.querySelector('.tasks').onkeyup = () => {
+                if (document.querySelector('.tasks').value.length >0) {
+                document.querySelector('#submitt').disabled = false;
+                } else {
+                    document.querySelector('#submitt').disabled = true;
+                }
+            }
+                
+
+
+        })
+    </script>
 </html>

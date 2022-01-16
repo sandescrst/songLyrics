@@ -15,5 +15,4 @@ def lyrics(request):
     apiurl= 'https://api.lyrics.ovh/v1/' + artist_name + '/' + song
     req = requests.get(apiurl)
     json_data= req.json()['lyrics']
-    ly=json_data
-    return render(request, 'homepage/lyrics.html',{'lyric': ly})
+    return render(request, 'homepage/lyrics.html',{'lyric': json_data})
