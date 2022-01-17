@@ -1,11 +1,42 @@
-
+<head>
+<title>
+    Songlyrics
+</title>
+</head>
 <style>
-    .lyrics {
+    #lyrics {
         text-align: center;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        overflow: auto;
+        height: 1000px;
     }
+
+    .lbody {
+        background: url('/static/homepage/dy.jpg');
+        background-repeat: no-repeat;  
+        background-size: cover;
+        background-position: center; 
+        height: 100%;
+        overflow: hidden;
+        text-align: center;
+
+
+
+    }
+
 </style>
-<div class="lyrics"> 
-<h1>The song lyrics is:</h1>
-<p >{{lyric|linebreaksbr}}</p>
-</div>
+<body class="lbody" >
+    <h1>The song lyrics is:</h1>
+    <div id="lyrics" style="overflow: scroll;"> 
+        
+        <b><p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: large; color: rgb(253, 253, 255);" >{{lyric|linebreaksbr}}</p></b>
+        </div> 
+</body>
+<!-- <script>
+    function doScroll(){
+   $('#lyrics').scrollTop($('#lyrics').scrollTop() + 10);
+}
+
+setInterval(doScroll, 500);
+
+</script> -->

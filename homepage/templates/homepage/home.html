@@ -6,13 +6,20 @@
         text-align: center;
         
     }
+    #bg {
+        background: url('/static/homepage/music.jpg');
+        background-repeat: no-repeat;  
+        background-size: cover;
+        background-position: center; 
+        height: 100%;
+    }
 </style>
     
     <head>
         <title>songlyrics</title>
         <link rel="stylesheet" href="{% static 'homepage/homepage.css' %}">
     </head>
-    <body id="bg" style="background: url('/static/homepage/music.jpg'); ">
+    <body id="bg" style=" ">
         
         <form  action="{%url 'lyrics' %}">
             <h5 style="font-size:70px;">Artist name</h5>
@@ -25,19 +32,21 @@
         </form>
     </body>
     <script>
+
         document.addEventListener('DOMContentLoaded', function (){
             //by default, submit button is disabled
             document.querySelector('#submitt').disabled = true;
-            document.querySelector('.tasks').onkeyup = () => {
-                if (document.querySelector('.tasks').value.length >0) {
+            var tasks = document.querySelectorAll('.tasks')
+            for (const task of tasks) {
+             task.onkeyup = () => {
+                if  (task.value.length >0) {
                 document.querySelector('#submitt').disabled = false;
                 } else {
                     document.querySelector('#submitt').disabled = true;
                 }
+
+               }
             }
-                
-
-
         })
     </script>
 </html>
